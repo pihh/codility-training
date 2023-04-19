@@ -15,3 +15,11 @@ const uniques = function(arr){
 const max = function(arr){
     return Math.max(...arr)
 }
+
+const arrayOfIndependentObjects = function(len,blueprint={}){
+    
+    let arr = new Array(len).fill(0).map(v=> ({...blueprint}))
+
+    //arr[0].a = 10
+    return arr; ;
+}
