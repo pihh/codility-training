@@ -80,9 +80,17 @@ function solution(A) {
     A = sort(A)
 
     if(A.length == 0) return 1;
-    if(A[0]> 1) return 1
-    for(let i = 1; i< A.length; i++){
-        if(A[i]-A[i-1] > 1) return A[i-1]+1
+    // if(A[0]> 1) return 1
+    // for(let i = 1; i< A.length; i++){
+    //     if(A[i]-A[i-1] > 1) return A[i-1]+1
+    // }
+
+    // return A.length+1
+    for(let i = 0; i< A.length; i++){
+        const next = i+1;
+        if(A[i] !== next){
+            return next
+        }
     }
 
     return A.length+1
