@@ -1,0 +1,3 @@
+Raciocinio mais fraco em :
+
+Stacks/Queues

@@ -53,3 +53,32 @@ const cumulativeSumInRangeBase = function (A, a, b) {
 const cumulativeSumInRange = function (A, _A, a, b) {
   return _A[b] - _A[a] + A[a];
 };
+const removeFromEnd = function(A){
+  const last = A.pop();
+  return last;
+}
+
+const splitIntoTwoByIndex = function(A,index,inplace=false){
+  let l = []
+  let r = []
+  if(inplace){
+    l = A;
+    r = l.splice(index);
+  }else{
+    l = A.slice(0,index);
+    r = A.slice(index)
+  }
+
+  return [l,r]
+}
+
+const reverse = function(A,inplace=false){
+  let reversed = A;
+  if(inplace){
+    reversed = A.reverse()
+  }else{
+    reversed = A.toReversed()
+    reversed = [...A].reverse()
+  }
+  return reversed
+}
