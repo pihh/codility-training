@@ -82,3 +82,20 @@ const reverse = function(A,inplace=false){
   }
   return reversed
 }
+
+// Max slice
+const kadane = function(A) {
+  // 100% -> uses Kadane algorithm who assumes that the localMaximum is the greater between the sum of the current value + currentLocal Max or current value
+  // https://app.codility.com/demo/results/training98HXY6-2ZK/
+  let localMax = A[0];
+  let currentMax = A[0];
+  for(let i = 1; i < A.length; i++){
+      let el = A[i];
+      localMax = Math.max(localMax+el, el);
+      if(localMax > currentMax){
+          currentMax = localMax;
+      }
+  }
+
+  return currentMax;
+}
