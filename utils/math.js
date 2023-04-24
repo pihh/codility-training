@@ -166,7 +166,7 @@ const gcdByDivision = function (a, b) {
     return gcdByDivision(b, a % b)
   }
 }
-const gcd = function (a, b, res=1) {
+const gcd = function (a, b, res = 1) {
   if (a == b) {
     return res * a;
   } else if (a % 2 == 0 && b % 2 == 0) {
@@ -182,6 +182,46 @@ const gcd = function (a, b, res=1) {
   }
 }
 
-const leastCommonMultiple = function(a,b){
-  return (a*b)/gcd(a,b,1)
+/**
+ * Multiplo mais pequneo que 2 numeros tem em comum
+ * 10,5 -> 10 ( 10 é multiplo de 10, 5 é multiplo de 10)
+ * 10,4 -> 20 ( 10 é multiplo de 20, 4 é multiplo de 20)
+ * @param {*} a 
+ * @param {*} b 
+ * @returns 
+ */
+const leastCommonMultiple = function (a, b) {
+  return (a * b) / gcd(a, b, 1)
 }
+
+/* -------------------------------------------------------------------------- */
+/*                                  FIBONACCI                                 */
+/* -------------------------------------------------------------------------- */
+
+const fibonacci = function (n) {
+  if (n <= 1) {
+    return m
+  }
+  return fibonacci(n - 1) + fibonacci(n - 1)
+}
+
+const fibonacciSequence = function (n) {
+  const fibonacci = new Array(n);
+  fibonacci[0] = 1; 
+  fibonacci[1] = 1;
+  for (let i = 2; i < fibonacci.length; ++i) {
+    fibonacci[i] = fibonacci[i - 1] + fibonacci[i - 2];
+  }
+  return fibonacci
+}
+
+
+/* MODULUS LIMIT
+
+const a = 21;
+const b = 5;
+const max = 10;
+
+a% max %b == a % b
+
+*/
