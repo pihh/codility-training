@@ -1,6 +1,19 @@
 /**
  * Join two arrays firstArray.concat(secondArray)
  */
+// MAPS ARE FASTER
+function increment(map,n){
+  let count = map.get(n)+1 || 1
+  map.set(n, count);
+  return count;
+}
+const map = new Map();
+increment(map,2)
+increment(map,1)
+increment(map,1)
+map.has(2)
+map.get(2)
+map.clear();
 
 // Simple sort
 const sort = function (arr) {
@@ -16,6 +29,24 @@ const uniques = function (arr) {
 const max = function (arr) {
   return Math.max(...arr);
 };
+
+const removeOne = function(arr,index){
+  if (index > -1) { // only splice array when item is found
+    arr.splice(index, 1); // 2nd parameter means remove one item only
+  }
+}
+
+const removeAll = function(arr,value){
+  let i = 0;
+  while (i < arr.length) {
+    if (arr[i] === value) {
+      arr.splice(i, 1);
+    } else {
+      ++i;
+    }
+  }
+  return arr;
+}
 
 const arrayOfIndependentObjects = function (len, blueprint = {}) {
   let arr = new Array(len).fill(0).map((v) => ({ ...blueprint }));
