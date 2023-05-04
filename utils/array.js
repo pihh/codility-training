@@ -130,3 +130,22 @@ const kadane = function(A) {
 
   return currentMax;
 }
+
+
+function filterInPlace(a, condition, thisArg) {
+  let j = 0;
+
+  a.forEach((e, i) => { 
+    if (condition.call(thisArg, e, i, a)) {
+      if (i!==j) a[j] = e; 
+      j++;
+    }
+  });
+
+  a.length = j;
+  return a;
+}
+
+filterInPlace(nums, (x,i) => {
+    return nums.indexOf(x) == i
+})

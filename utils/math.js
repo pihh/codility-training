@@ -198,11 +198,18 @@ const leastCommonMultiple = function (a, b) {
 /*                                  FIBONACCI                                 */
 /* -------------------------------------------------------------------------- */
 
-const fibonacci = function (n) {
+const fibonacci = n => {
   if (n <= 1) {
-    return m
+    return n;
   }
-  return fibonacci(n - 1) + fibonacci(n - 1)
+  return fibonacci(n - 1) + fibonacci(n - 2);
+};
+
+function getNthFib(n, memoized = { 1: 0, 2: 1 }) {
+  if (n in memoized) return memoized[n];
+
+  memoized[n] = getNthFib(n - 1, memoized) + getNthFib(n - 2, memoized);
+  return memoized[n];
 }
 
 const fibonacciSequence = function (n) {

@@ -1,0 +1,134 @@
+<div id="standard_task_description" class="TaskDescription__StandardTaskDescription-sc-7m9k5q-3 crhSKM protected standard-task-description"><h2 class="mod-hidden">Task description</h2><div class="TaskDescription__TaskContentWrapper-sc-7m9k5q-2 kDUwpJ task-description-content"><p>Write a function named <code>cityWeather</code> that returns an object representing the weather in a given city. The function should fetch the data from the mocked API.</p>
+    <h3>Requirements</h3>
+    <p>Implement the <code>cityWeather</code> function to satisfy the following requirements:</p>
+    <ol>
+    <li>The function has one input parameter <code>city</code>, which is a <code>string</code> that cannot be empty.
+    <ul>
+    <li>Throw the <em>"not a string"</em> message if the <code>city</code> parameter is not a string.</li>
+    <li>Throw the <em>"string is empty"</em> if <code>city</code> is an empty string.</li>
+    </ul>
+    </li>
+    <li>The <code>BASE_URL</code> variable will be imported at the top of your inital file; you need to concatenate the query prefix <code>&amp;q=</code> between the <code>BASE_URL</code> and the <code>city</code> parameter (as the url) in order to fetch the data correctly like so:</li>
+    </ol>
+    <pre><code>    &lt;base url&gt;&lt;query prefix&gt;&lt;city parameter&gt;
+    </code></pre>
+    <ol start="3">
+    <li>The function should call the mocked API and return an object that contains the weather data for the specified city. The <code>main</code> property of the mocked reponse contains the data to be returned. The format of the returned object should be as follows:</li>
+    </ol>
+    <pre><code class="language-json">{
+      "temp": 21,
+      "feels_like": 19.54,
+      "temp_min": 21,
+      "temp_max": 21,
+      "pressure": 1026,
+      "humidity": 49
+    }
+    </code></pre>
+    <ol start="4">
+    <li>If the specified city doesn't exist, throw the <em>"city not found"</em> error.</li>
+    </ol>
+    <h3>Assumptions</h3>
+    <ul>
+    <li>The API function (<code>axios.get(url)</code> or <code>fetch(url)</code>) will handle blank spaces, Unicode characters and lower/upper case values (note that the function will transform all characters to lower case to find a match).</li>
+    </ul>
+    <h3>Hints</h3>
+    <ul>
+    <li>
+    <p>As Axios and Fetch use HTTP requests, the data will be mocked up for the response. This will be done automatically when you make an HTTP GET request (<code>axios.get(url)</code> or <code>fetch(url)</code>); if there is no match - an error will be returned.</p>
+    </li>
+    <li>
+    <p>Use the HTTP request (asynchronously) to be able return an object as expected (the return of the HTTP request is a promise resolving to an object). An example how to do this is given in the initial code file.</p>
+    </li>
+    <li>
+    <p>The name of the method to perform the task is already provided with the correct definition of name and parameters (<code>cityWeather(city)</code>).</p>
+    </li>
+    <li>
+    <p>The list of cities provided in the mocked-up data is: bogota, tokyo, madrid, paris and washington; if the city requested does not match, the entries in this list, send back the error message <code>city not found</code> (this message is already provided by the mocked-up API and can be sent back using the reject of the main promise placed in the initial code).</p>
+    </li>
+    <li>
+    <p>Don't forget that blank spaces can be an input.</p>
+    </li>
+    </ul>
+    <h3>Async Await</h3>
+    <ul>
+    <li>You can use <code>async</code>,<code>await</code>. Just make sure you add the <code>async</code> prefix before the function like so:</li>
+    </ul>
+    <pre><code class="language-javascript">async function cityWeather(city) {
+        ...
+    }
+    </code></pre>
+    <h3>Available packages/libraries</h3>
+    <p><em>To get the data using API calls you may use the packages:</em></p>
+    <ul>
+    <li><em>Node 18.9.0</em></li>
+    <li><em><a href="https://github.com/axios/axios">axios</a> 1.2.3</em></li>
+    </ul>
+    <h3>Examples</h3>
+    <ul>
+    <li>The successful response from the mocked API has the following format:</li>
+    </ul>
+    <pre><code class="language-json">{
+        status: 200,
+        data: {
+            ...,
+            main: {
+                temp: 21,
+                feels_like: 19.54,
+                temp_min: 21,
+                temp_max: 21,
+                pressure: 1026,
+                humidity: 49
+            },
+            ...
+        }
+    }
+    </code></pre>
+    <ul>
+    <li>The error returned by the API has the following format:</li>
+    </ul>
+    <pre><code class="language-json">{
+      "status": 404,
+      "data": {
+        "message": "city not found",
+        "code": 404
+      }
+    }
+    </code></pre>
+    <ul>
+    <li>Example scenarios:
+    <ol>
+    <li>Case 1: Input is not a string
+    <ul>
+    <li>Examples might be <code>null</code>, <code>undefined</code>, <code>{}</code>, <code>[]</code>, or <code>number</code> (0,5,99, etc..).</li>
+    <li><strong>Expected Throw:</strong> <code>not a string</code></li>
+    </ul>
+    </li>
+    <li>Case 2: Input is an empty string.
+    <ul>
+    <li><strong>Expected Throw:</strong> <code>string is empty</code></li>
+    </ul>
+    </li>
+    <li>Case 3: Input is a string, but it is a city that's not found.
+    <ul>
+    <li>For <strong>Input:</strong> <code>cityWeather('Seoul')</code></li>
+    <li><strong>Expected Throw:</strong> <code>city not found</code> (promise reject)</li>
+    </ul>
+    </li>
+    <li>Case 4: Valid city that contains weather data as object properties.
+    <ul>
+    <li>For <strong>Input:</strong> <code>cityWeather('Bogotá')</code></li>
+    <li><strong>Expected Output:</strong></li>
+    </ul>
+    <pre><code class="language-json">{
+      "temp": 21,
+      "feels_like": 19.54,
+      "temp_min": 21,
+      "temp_max": 21,
+      "pressure": 1026,
+      "humidity": 49
+    }
+    </code></pre>
+    </li>
+    </ol>
+    </li>
+    </ul></div></div>
