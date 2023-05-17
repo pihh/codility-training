@@ -232,3 +232,19 @@ const max = 10;
 a% max %b == a % b
 
 */
+
+// SUM OF ALL NUMBERS FROM 1 to N
+function sumOneToN(n){
+  return  (n * (n+1)) / 2;
+}
+
+// Missing number
+var missingNumber = function(nums) {
+  let xor = 0
+  let i = 0
+
+  for (i = 0; i < nums.length; i++) {
+      xor = xor ^ i ^ nums[i]
+  }
+  return xor ^ i
+};

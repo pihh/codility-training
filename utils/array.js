@@ -149,3 +149,54 @@ function filterInPlace(a, condition, thisArg) {
 filterInPlace(nums, (x,i) => {
     return nums.indexOf(x) == i
 })
+
+// find where should insert in sorted array
+function sortedIndex(array, value) {
+  var low = 0,
+      high = array.length;
+
+  while (low < high) {
+      var mid = (low + high) >>> 1;
+      if (array[mid] < value) low = mid + 1;
+      else high = mid;
+  }
+  return low;
+}
+
+function sortedIndex(array, value, add=true) {
+  var low = 0,
+      high = array.length;
+
+  while (low < high) {
+      var mid = (low + high) >>> 1;
+      if (array[mid] < value) low = mid + 1;
+      else high = mid;
+  }
+  
+  if(add) {
+   	let left = array.slice(0,low)
+    let right = array.slice(low)
+    array = left.concat([value]).concat(right)
+    return {array,low}
+  }
+  return {array,low};
+}
+
+
+// SWAP
+const swapElements = (array, index1, index2) => {
+  let temp = array[index1];
+  array[index1] = array[index2];
+  array[index2] = temp;
+};
+
+const swapElementsInline = (array, index1, index2) => {
+  [array[index1], array[index2]] = [array[index2], array[index1]];
+};
+
+
+const removeFromIndexReturnCopy = (array,index)=>{
+	const l = array.slice(0,index)
+  const r = a.slice(index+1,array.length);
+  return l.concat(r)
+}
