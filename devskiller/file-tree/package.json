@@ -4,7 +4,8 @@
   "author": "Devskiller",
   "scripts": {
     "test": "babel-node test",
-    "test:watch": "chokidar \"**/*.js\" -c \"npm test\" --silent --initial --ignore node_modules"
+    "test:watch": "chokidar \"**/*.js\" -c \"npm test\" --silent --initial --ignore node_modules",
+    "test:watch:mod":"chokidar \"**/*.js\" -c \"npm test\" --initial --ignore node_modules"
   },
   "devDependencies": {
     "@babel/core": "7.21.0",
